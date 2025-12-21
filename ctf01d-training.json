@@ -1,0 +1,52 @@
+{
+  "service_name": "2023-service-sibirctf-cardvault",
+  "display_name": "Sibirctf Cardvault",
+  "ctf_event": "SibirCTF 2023",
+  "year": 2023,
+  "description": "ЛК антифрода для ручной проверки подозрительных карточных платежей.",
+  "author": "Игорь Поляков",
+  "service_port": 7000,
+  "languages": [
+    "Elixir"
+  ],
+  "tech_stack": [
+    "Elixir",
+    "Phoenix",
+    "Redis"
+  ],
+  "dependencies": {
+    "runtime": [
+      "axios",
+      "vue",
+      "vue-moment",
+      "vue-router"
+    ],
+    "development": [
+      "@vitejs/plugin-vue",
+      "vite"
+    ],
+    "system": []
+  },
+  "vulnerabilities": [
+    {
+      "type": "Misconfiguration",
+      "description": "Redis проброшен наружу и доступен без ограничений.",
+      "severity": "High"
+    },
+    {
+      "type": "Weak Cryptography",
+      "description": "Мастер-ключ генерируется из очень малого числа сидов и перебирается.",
+      "severity": "High"
+    },
+    {
+      "type": "Redis Injection",
+      "description": "Метод list использует KEYS с пользовательским вводом, можно получить все токены.",
+      "severity": "High"
+    }
+  ],
+  "metadata": {
+    "difficulty": null,
+    "category": null,
+    "tags": []
+  }
+}
